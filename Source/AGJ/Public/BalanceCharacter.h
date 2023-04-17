@@ -26,4 +26,21 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION(BlueprintCallable)
+		void CheckBalance();
+
+public:
+
+	// Balance Variables
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Balance")
+	float CurrentBalance;
+
+	UPROPERTY(VisibleAnywhere, Category = "Balance")
+	float LeftMax = 1.0f;
+
+
+	UPROPERTY(VisibleAnywhere, Category = "Balance")
+	float RightMax = 0.0f;
 };

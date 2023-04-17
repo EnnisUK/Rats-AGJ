@@ -2,6 +2,8 @@
 
 
 #include "BalanceCharacter.h"
+#include "Engine/Engine.h"
+
 
 // Sets default values
 ABalanceCharacter::ABalanceCharacter()
@@ -29,6 +31,22 @@ void ABalanceCharacter::Tick(float DeltaTime)
 void ABalanceCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+}
+
+void ABalanceCharacter::CheckBalance()
+{
+	if (CurrentBalance >= LeftMax)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Red, TEXT("Fall Left"));
+	}
+	else
+	{
+		if (CurrentBalance <= RightMax)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Red, TEXT("Fall Right"));
+		}
+	}
 
 }
 
